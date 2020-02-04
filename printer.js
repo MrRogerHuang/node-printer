@@ -321,6 +321,10 @@ Printer.prototype.destroy = function () {
 	})
 }
 
+// I change the watch algorithm:
+// I assume if a job is not founded in the output of lpq,
+// the job is completed! (See job.unqueue.)
+// However, it means it must start the watch after sending a job!
 Printer.prototype.watch = function () {
 	var self = this;
 	var args = ['-P', this.name];
