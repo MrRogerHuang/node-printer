@@ -1,8 +1,8 @@
 {
-  "name": "zuzel-printer",
+  "name": "node-printer-roger",
   "description": "Create and manage one or multiple printers (w/ CUPS), send file path or node buffer with support for all lp options. Get feedback on jobs you sent.",
-  "version": "1.0.4",
-  "homepage": "http://github.com/iSuslov/node-printer",
+  "version": "1.0.6",
+  "homepage": "https://github.com/MrRogerHuang/node-printer",
   "keywords": [
     "printer",
     "print",
@@ -11,18 +11,18 @@
     "lp",
     "job"
   ],
-  "author": "Ivan Suslov <digitalzuzel@gmail.com>",
+  "author": "Meng-Yuan Huang <roger@beautimode.com>",
   "main": "./printer",
   "scripts": {
     "test": "jasmine"
   },
   "bugs": {
     "mail": "",
-    "url": "http://github.com/iSuslov/node-printer/issues"
+    "url": "https://github.com/MrRogerHuang/node-printer/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/iSuslov/node-printer.git"
+    "url": "https://github.com/MrRogerHuang/node-printer.git"
   },
   "engines": {
     "node": ">=0.10.36"
@@ -33,7 +33,7 @@
   "licenses": [
     {
       "type": "MIT",
-      "url": "http://github.com/iSuslov/node-printer/raw/master/LICENSE"
+      "url": "https://github.com/MrRogerHuang/node-printer/raw/master/LICENSE"
     }
   ],
   "devDependencies": {

@@ -292,7 +292,6 @@ function Printer(name) {
 	}
 	self.name = name;
 	self.jobs = [];
-	self.watch();
 }
 
 Printer.list = function () {
@@ -311,8 +310,10 @@ Printer.match = function (name) {
 	}).length);
 };
 
+var watchTimer;
 Printer.prototype.destroy = function () {
 	var self = this;
+	clearTimeout(watchTimer);
 	self.lpq.removeAllListeners();
 	self.lpq.kill();
 	self.jobs.forEach(function(job){
@@ -355,9 +356,9 @@ Printer.prototype.watch = function () {
 		});
 	});
 
-	lpq.on('exit', function () {
+	watchTimer = setTimeout(function () {
 		self.watch();
-	});
+	}, 100);
 };
 
 Printer.prototype.findJob = function (jobId) {
@@ -379,6 +380,7 @@ Printer.prototype.printBuffer = function (data, options) {
 	var job = new Job(lp);
 	job.on('sent', function () {
 		self.jobs.push(job);
+		self.watch();
 	});
 
 	job.on('completed', function () {
@@ -401,6 +403,7 @@ Printer.prototype.printFile = function (filePath, options) {
 	var job = new Job(lp);
 	job.on('sent', function () {
 		self.jobs.push(job);
+		self.watch();
 	});
 
 	job.on('completed', function () {
